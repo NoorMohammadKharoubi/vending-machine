@@ -6,7 +6,15 @@ import lombok.Getter;
 @AllArgsConstructor
 @Getter
 public enum ENote {
-    N20(20), N50(50);
+    N50(50),N20(20);
 
-    private int notes;
+    private int value;
+
+    public static boolean contains(double value)
+    {
+        for(ENote note:values())
+            if (note.value == value)
+                return true;
+        return false;
+    }
 }

@@ -17,13 +17,13 @@ public class SnackMachine extends VendingMachine {
 
         // init services
         setItemSlotService(new ItemSlotService());
+        setPaymentService(new PaymentService(0));
 
         // set app properties
         String[] itemNames = prop.getProperty("SNACK_VM_ITEM_NAMES").split("\\s*,\\s*");
         String[] itemPrices = prop.getProperty("SNACK_VM_ITEM_PRICES").split("\\s*,\\s*");
         String[] itemCodes = prop.getProperty("SNACK_VM_ITEM_CODES").split("\\s*,\\s*");
 
-        setCurrentAmount(0);
         setCodes(itemCodes);
         setCOLS(Integer.parseInt(prop.getProperty("SNACK_VM_COLS_COUNT")));
         setROWS(Integer.parseInt(prop.getProperty("SNACK_VM_ROWS_COUNT")));

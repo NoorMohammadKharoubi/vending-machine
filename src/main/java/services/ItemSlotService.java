@@ -24,10 +24,10 @@ public class ItemSlotService {
         mapOfItemSlots.put(code, new ItemSlot(item,price,count));
     }
 
-    public void pickItem(String code){
+    public void selectItem(String code){
         if(mapOfItemSlots.containsKey(code)) {
             ItemSlot item = mapOfItemSlots.get(code);
-            if(item.getNumOfItems()>0){
+            if(isItemAvailable(code)){
                 currentItemSlot = item;
                 return;
             }
@@ -36,8 +36,15 @@ public class ItemSlotService {
         throw new NotFoundItemException(code);
     }
 
-    public void dropItem(){
+    public void cancelItem(){
         currentItemSlot=null;
+    }
+
+    public Item BuyItem(){
+        Item item = currentItemSlot.getItem();
+        reduceItem();
+        currentItemSlot=null;
+        return item;
     }
     public double getPriceForSelectedItem(){
         if(currentItemSlot != null){
@@ -52,8 +59,10 @@ public class ItemSlotService {
     public double getPriceOfItem(String code){
         return getMapOfItemSlots().get(code).getPrice();
     }
-
     public boolean isItemAvailable(String code){
         return mapOfItemSlots.get(code).getNumOfItems()>0;
+    }
+    public void reduceItem(){
+        getCurrentItemSlot().setNumOfItems(getCurrentItemSlot().getNumOfItems()-1);
     }
 }

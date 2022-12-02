@@ -1,6 +1,5 @@
 package payment;
 
-import app.SnackMachine;
 import enums.EPaymentTypes;
 
 import java.util.Objects;

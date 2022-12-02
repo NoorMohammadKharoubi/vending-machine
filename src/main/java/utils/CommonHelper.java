@@ -9,7 +9,7 @@ public class CommonHelper {
     public static Properties getProperties(){
         Properties prop = new Properties();
         try {
-            String configFilePath = "src/config.properties";
+            String configFilePath = "src/main/resources/config.properties";
             FileInputStream propsInput = new FileInputStream(configFilePath);
             prop.load(propsInput);
         } catch (FileNotFoundException e) {
