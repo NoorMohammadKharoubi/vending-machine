@@ -2,6 +2,9 @@ package app;
 
 import utils.Keypad;
 
+/**
+ * This Class is used to test VM
+ */
 public class VendingMachineTest {
     public static void main(String[] args) {
         VendingMachine vendingMachine = VendingMachineFactory.getMachine("Snack");

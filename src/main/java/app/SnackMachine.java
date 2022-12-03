@@ -8,6 +8,9 @@ import utils.CommonHelper;
 
 import java.util.Properties;
 
+/**
+ * This class to initialize the snack vending machine
+ */
 public class SnackMachine extends VendingMachine {
 
     @Override
